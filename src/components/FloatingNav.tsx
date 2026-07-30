@@ -62,11 +62,11 @@ const FloatingNav = () => {
                 Say Hi!
               </p>
               <a
-                href="mailto:hello@example.com"
+                href="mailto:goraad.dk@gmail.com"
                 className="flex items-center gap-2 text-sm hover:opacity-70 transition-opacity"
               >
                 <Mail size={14} />
-                hello@example.com
+                goraad.dk@gmail.com
               </a>
             </div>
           </PopoverContent>

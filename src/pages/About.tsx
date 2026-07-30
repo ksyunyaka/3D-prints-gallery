@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import FloatingNav from "@/components/FloatingNav";
 import ScrollRevealText from "@/components/ScrollRevealText";
-import { Mail } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const About = () => {
   const location = useLocation();
@@ -76,15 +76,37 @@ const About = () => {
               <h3 className="text-xs uppercase tracking-widest text-muted-foreground mb-4 border-b border-border pb-2">
                 Say Hi!
               </h3>
-              <a
-                href="mailto:hello@example.com"
-                className="text-sm hover:opacity-70 transition-opacity flex items-center gap-2"
-              >
-                <Mail size={14} />
-                hello@example.com
-              </a>
+              <div className="space-y-2">
+                <a
+                  href="mailto:goraad.dk@gmail.com"
+                  className="text-sm hover:opacity-70 transition-opacity flex items-center gap-2"
+                >
+                  <Mail size={14} />
+                  goraad.dk@gmail.com
+                </a>
+                <p className="text-sm flex items-center gap-2 text-muted-foreground">
+                  <MapPin size={14} />
+                  Copenhagen, Denmark
+                </p>
+              </div>
             </div>
           </div>
+        </section>
+
+        {/* Site credit */}
+        <section className="px-6 pb-12">
+          <p className="text-xs text-muted-foreground text-center">
+            Site made by{" "}
+            <a
+              href="https://goraad.lovable.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-2 hover:text-foreground transition-colors"
+            >
+              Godt råd
+            </a>{" "}
+            — Good advice for your business, 2026
+          </p>
         </section>
       </main>
       <FloatingNav />
