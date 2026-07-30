@@ -21,9 +21,9 @@ const About = () => {
     }
   }, [location]);
 
-  const printers = ["Bambu Lab A1"];
+  const printers = ["Prusa MK4", "Prusa MK4S"];
 
-  const materials = ["PLA", "PETG", "TPU"];
+  const materials = ["PLA", "PETG", "PET"];
 
   return (
     <>

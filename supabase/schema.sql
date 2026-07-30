@@ -51,6 +51,13 @@ create trigger prints_set_updated_at
 
 alter table public.prints enable row level security;
 
+-- RLS policies only take effect on top of ordinary table grants — the SQL
+-- editor doesn't hand these out automatically the way the table-creation UI
+-- does, so without them every request gets a bare "permission denied".
+grant usage on schema public to anon, authenticated;
+grant select on public.prints to anon, authenticated;
+grant insert, update, delete on public.prints to authenticated;
+
 drop policy if exists "Published prints are readable by anyone" on public.prints;
 create policy "Published prints are readable by anyone"
   on public.prints for select
