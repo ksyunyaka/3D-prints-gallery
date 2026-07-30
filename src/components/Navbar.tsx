@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
-import { getCategories } from "@/data/projects";
 
 interface NavbarProps {
+  categories?: string[];
   selectedCategory?: string;
   onCategoryChange?: (category: string) => void;
 }
 
-const Navbar = ({ selectedCategory, onCategoryChange }: NavbarProps) => {
+const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const location = useLocation();
-  
+
   const isHomePage = location.pathname === "/";
-  
-  const categories = ["everything", ...getCategories().slice(0, 4)];
+  const visibleCategories = categories.slice(0, 5);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +40,7 @@ const Navbar = ({ selectedCategory, onCategoryChange }: NavbarProps) => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-sm"
-            : "bg-transparent"
+          isScrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent"
         }`}
       >
         <div className="px-6">
@@ -53,13 +50,13 @@ const Navbar = ({ selectedCategory, onCategoryChange }: NavbarProps) => {
               to="/"
               className="text-lg font-medium tracking-tight hover:opacity-70 transition-opacity duration-300"
             >
-              Jordan Studio
+              Oksana's 3D Prints
             </Link>
 
             {/* Center: Category Filters (Desktop only, only on Home page) */}
-            {isHomePage && onCategoryChange && (
+            {isHomePage && onCategoryChange && visibleCategories.length > 0 && (
               <div className="hidden md:flex items-center gap-2">
-                {categories.map((category) => (
+                {visibleCategories.map((category) => (
                   <button
                     key={category}
                     onClick={() => onCategoryChange(category)}
@@ -88,11 +85,11 @@ const Navbar = ({ selectedCategory, onCategoryChange }: NavbarProps) => {
       </nav>
 
       {/* Mobile: Scrollable Categories below header (only on Home page) */}
-      {isHomePage && onCategoryChange && (
+      {isHomePage && onCategoryChange && visibleCategories.length > 0 && (
         <div className="fixed top-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm md:hidden">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex gap-2 px-6 py-3 w-max">
-              {categories.map((category) => (
+              {visibleCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => onCategoryChange(category)}

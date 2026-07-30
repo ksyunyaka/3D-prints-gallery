@@ -1,0 +1,18 @@
+import type { ReactNode } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
+
+const RequireAuth = ({ children }: { children: ReactNode }) => {
+  const { session, loading } = useAuth();
+  const location = useLocation();
+
+  if (loading) return null;
+
+  if (!session) {
+    return <Navigate to="/admin/login" state={{ from: location.pathname }} replace />;
+  }
+
+  return <>{children}</>;
+};
+
+export default RequireAuth;
