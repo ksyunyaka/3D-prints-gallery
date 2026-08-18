@@ -107,6 +107,7 @@ const About = () => {
             </a>{" "}
             — Good advice for your business, 2026
           </p>
+          <p className="text-xs text-muted-foreground text-center mt-1">CVR 46666089</p>
         </section>
       </main>
       <FloatingNav />
