@@ -65,9 +65,14 @@ const PrintDetail = () => {
         <Navbar />
 
         {/* Hero Image */}
-        <section className="pt-20 px-4 md:px-6">
-          <div className="w-full h-[40vh] md:h-[80vh] overflow-hidden rounded-2xl md:rounded-3xl fade-in-up">
-            <img src={print.images[0]} alt={print.title} className="w-full h-full object-cover" />
+        <section className="pt-20 px-4 md:px-6 max-w-[1200px] mx-auto w-full">
+          <div className="w-full overflow-hidden rounded-2xl md:rounded-3xl bg-muted fade-in-up flex items-center justify-center">
+            <img
+              src={print.images[0]}
+              alt={print.title}
+              className="w-auto max-w-full max-h-[55vh] md:max-h-[78vh] object-contain"
+              decoding="async"
+            />
           </div>
         </section>
 

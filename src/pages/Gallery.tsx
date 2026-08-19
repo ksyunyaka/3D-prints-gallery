@@ -83,6 +83,8 @@ const Gallery = () => {
                     alt={print.title}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
+                    sizes="50vw"
                   />
                 </div>
 
