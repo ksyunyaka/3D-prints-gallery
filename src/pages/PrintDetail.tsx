@@ -77,7 +77,7 @@ const PrintDetail = () => {
         </section>
 
         {/* Print Info */}
-        <section className="py-8 px-6">
+        <section className="py-8 px-6 max-w-[1200px] mx-auto w-full">
           <div className="max-w-4xl">
             <div className="mb-6 fade-in-up fade-in-up-delay-1">
               <h1 className="text-display mb-3">{print.title}</h1>
@@ -141,19 +141,21 @@ const PrintDetail = () => {
 
         {/* Gallery */}
         {print.images.length > 1 && (
-          <section className="py-6 px-6">
-            <div className="space-y-4">
+          <section className="py-6 px-6 max-w-[1200px] mx-auto w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {print.images.slice(1).map((image, index) => (
                 <div
                   key={image}
-                  className="w-full overflow-hidden rounded-3xl fade-in-up"
+                  className="w-full overflow-hidden rounded-3xl bg-muted fade-in-up flex items-center justify-center"
                   style={{ animationDelay: `${(index + 4) * 100}ms` }}
                 >
                   <img
                     src={image}
                     alt={`${print.title} - ${index + 2}`}
-                    className="w-full h-auto object-cover"
+                    className="w-auto max-w-full max-h-[60vh] object-contain"
                     loading="lazy"
+                    decoding="async"
+                    sizes="(min-width: 640px) 50vw, 100vw"
                   />
                 </div>
               ))}
