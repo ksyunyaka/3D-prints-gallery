@@ -44,7 +44,10 @@ const Gallery = () => {
           onCategoryChange={setSelectedCategory}
         />
 
-        <section ref={sectionRef} className="pt-32 md:pt-24 pb-24 px-6">
+        <section
+          ref={sectionRef}
+          className="pt-32 md:pt-24 pb-24 px-6 max-w-[1400px] mx-auto w-full"
+        >
           {isLoading && (
             <div className="flex items-center justify-center py-24">
               <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
@@ -110,8 +113,10 @@ const Gallery = () => {
                   <img
                     src={print.images[0]}
                     alt={print.title}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto max-h-[70vh] object-cover"
                     loading="lazy"
+                    decoding="async"
+                    sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, 50vw"
                   />
                 </div>
 
