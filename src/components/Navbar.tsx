@@ -50,7 +50,7 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
               to="/"
               className="text-lg font-medium tracking-tight hover:opacity-70 transition-opacity duration-300"
             >
-              Oksana's 3D Prints
+              Oksana&nbsp;Prints
             </Link>
 
             {/* Center: Category Filters (Desktop only, only on Home page) */}
