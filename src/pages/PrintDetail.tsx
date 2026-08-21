@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingNav from "@/components/FloatingNav";
+import SiteFooter from "@/components/SiteFooter";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePrintBySlug, usePrints } from "@/hooks/usePrints";
 import { errorMessage } from "@/lib/errors";
@@ -31,6 +32,7 @@ const PrintDetail = () => {
             <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
           </div>
         </main>
+        <SiteFooter />
         <FloatingNav />
       </>
     );
@@ -49,6 +51,7 @@ const PrintDetail = () => {
             </Link>
           </div>
         </main>
+        <SiteFooter />
         <FloatingNav />
       </>
     );
@@ -198,6 +201,7 @@ const PrintDetail = () => {
           </div>
         </section>
       </main>
+      <SiteFooter />
       <FloatingNav />
     </>
   );

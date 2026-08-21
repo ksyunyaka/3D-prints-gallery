@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingNav from "@/components/FloatingNav";
+import SiteFooter from "@/components/SiteFooter";
 import { usePrints } from "@/hooks/usePrints";
 import { collectTags } from "@/lib/prints";
 import { errorMessage } from "@/lib/errors";
@@ -135,6 +136,7 @@ const Gallery = () => {
           </div>
         </section>
       </main>
+      <SiteFooter />
       <FloatingNav />
     </>
   );
