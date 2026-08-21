@@ -32,6 +32,7 @@ const PrintDetail = () => {
             <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
           </div>
         </main>
+        <SiteFooter />
         <FloatingNav />
       </>
     );
