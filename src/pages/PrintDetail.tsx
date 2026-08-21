@@ -51,6 +51,7 @@ const PrintDetail = () => {
             </Link>
           </div>
         </main>
+        <SiteFooter />
         <FloatingNav />
       </>
     );
@@ -200,6 +201,7 @@ const PrintDetail = () => {
           </div>
         </section>
       </main>
+      <SiteFooter />
       <FloatingNav />
     </>
   );
