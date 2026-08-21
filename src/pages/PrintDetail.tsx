@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import FloatingNav from "@/components/FloatingNav";
+import SiteFooter from "@/components/SiteFooter";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { usePrintBySlug, usePrints } from "@/hooks/usePrints";
 import { errorMessage } from "@/lib/errors";
