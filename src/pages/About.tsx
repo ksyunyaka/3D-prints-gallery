@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import FloatingNav from "@/components/FloatingNav";
+import SiteFooter from "@/components/SiteFooter";
 import ScrollRevealText from "@/components/ScrollRevealText";
 import { Mail, MapPin } from "lucide-react";
 
@@ -93,23 +94,8 @@ const About = () => {
           </div>
         </section>
 
-        {/* Site credit */}
-        <section className="px-6 pb-12">
-          <p className="text-xs text-muted-foreground text-center">
-            Site made by{" "}
-            <a
-              href="https://goraad.lovable.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-2 hover:text-foreground transition-colors"
-            >
-              Godt råd
-            </a>{" "}
-            — Good advice for your business, 2026
-          </p>
-          <p className="text-xs text-muted-foreground text-center mt-1">CVR 46666089</p>
-        </section>
       </main>
+      <SiteFooter />
       <FloatingNav />
     </>
   );
