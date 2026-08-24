@@ -60,7 +60,7 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
                   <button
                     key={category}
                     onClick={() => onCategoryChange(category)}
-                    className={`px-4 py-1.5 text-sm rounded-full transition-all duration-300 ${
+                    className={`px-4 py-1.5 text-sm rounded-full transition-all duration-300 focus-ring ${
                       selectedCategory === category
                         ? "bg-foreground text-background"
                         : "text-muted-foreground hover:text-foreground"
@@ -93,7 +93,7 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
                 <button
                   key={category}
                   onClick={() => onCategoryChange(category)}
-                  className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 ${
+                  className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 focus-ring ${
                     selectedCategory === category
                       ? "bg-foreground text-background"
                       : "bg-muted text-muted-foreground"
