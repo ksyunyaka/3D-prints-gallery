@@ -63,7 +63,7 @@ const FloatingNav = () => {
               </p>
               <a
                 href="mailto:goraad.dk@gmail.com"
-                className="flex items-center gap-2 text-sm hover:opacity-70 transition-opacity"
+                className="flex items-center gap-2 text-sm hover:text-foreground transition-colors focus-ring"
               >
                 <Mail size={14} />
                 goraad.dk@gmail.com

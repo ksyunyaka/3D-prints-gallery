@@ -8,7 +8,7 @@ const SiteFooter = () => {
             href="https://goraad.lovable.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-foreground transition-colors"
+            className="underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
           >
             Godt råd
           </a>{" "}

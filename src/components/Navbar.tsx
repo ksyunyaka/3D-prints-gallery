@@ -48,7 +48,7 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
             {/* Logo */}
             <Link
               to="/"
-              className="text-lg font-medium tracking-tight hover:opacity-70 transition-opacity duration-300"
+              className="text-lg font-medium tracking-tight hover:opacity-80 transition-opacity duration-300 focus-ring"
             >
               Oksana&nbsp;Prints
             </Link>
@@ -75,7 +75,7 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
             {/* Right side: Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 hover:opacity-70 transition-opacity duration-300"
+              className="p-2 min-h-11 min-w-11 flex items-center justify-center hover:opacity-80 transition-opacity duration-300 focus-ring"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}

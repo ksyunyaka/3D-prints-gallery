@@ -29,8 +29,8 @@
     --accent-foreground: 20 35% 18%;
     --destructive: 0 72% 48%;
     --destructive-foreground: 0 0% 100%;
-    --border: 345 35% 88%;
-    --input: 345 35% 88%;
+    --border: 345 32% 84%;
+    --input: 20 20% 52%;
     --ring: 20 35% 25%;
     --radius: 0rem;
     --sidebar-background: 350 55% 97%;
@@ -60,8 +60,8 @@
     --accent-foreground: 350 40% 95%;
     --destructive: 0 62% 38%;
     --destructive-foreground: 0 0% 98%;
-    --border: 20 20% 24%;
-    --input: 20 20% 24%;
+    --border: 20 20% 28%;
+    --input: 20 14% 45%;
     --ring: 345 55% 70%;
   }
 }
@@ -78,6 +78,10 @@
 }
 
 @layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background;
+  }
+
   .project-card {
     @apply block overflow-hidden;
   }
