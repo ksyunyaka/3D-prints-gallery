@@ -46,7 +46,7 @@ const PrintDetail = () => {
           <div className="pt-40 pb-24 px-6 text-center">
             <h1 className="text-headline mb-4">Print not found</h1>
             {error && <p className="text-sm text-destructive mb-4">{errorMessage(error)}</p>}
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-ring">
               Back to Home
             </Link>
           </div>
@@ -110,7 +110,7 @@ const PrintDetail = () => {
                       href={print.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm underline underline-offset-2 hover:opacity-70 transition-opacity"
+                      className="text-sm underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
                     >
                       {print.sourceName}
                     </a>
@@ -126,7 +126,7 @@ const PrintDetail = () => {
                     href={print.stlUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm underline underline-offset-2 hover:opacity-70 transition-opacity"
+                    className="text-sm underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
                   >
                     Download
                   </a>
@@ -172,7 +172,7 @@ const PrintDetail = () => {
             {prevPrint ? (
               <button
                 onClick={() => navigate(`/print/${prevPrint.slug}`)}
-                className="group flex items-center gap-3 text-left hover:opacity-70 transition-opacity duration-300"
+                className="group flex items-center gap-3 text-left hover:text-foreground transition-colors duration-300 focus-ring"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform duration-300" />
                 <div>
@@ -187,7 +187,7 @@ const PrintDetail = () => {
             {nextPrint ? (
               <button
                 onClick={() => navigate(`/print/${nextPrint.slug}`)}
-                className="group flex items-center gap-3 text-right hover:opacity-70 transition-opacity duration-300"
+                className="group flex items-center gap-3 text-right hover:text-foreground transition-colors duration-300 focus-ring"
               >
                 <div>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Next</p>

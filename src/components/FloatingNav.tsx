@@ -29,7 +29,7 @@ const FloatingNav = () => {
           <Link
             key={item.name}
             to={item.path}
-            className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+            className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 focus-ring ${
               isActive(item.path)
                 ? "bg-background text-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground"
@@ -43,7 +43,7 @@ const FloatingNav = () => {
         <Popover open={contactOpen} onOpenChange={setContactOpen}>
           <PopoverTrigger asChild>
             <button
-              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
+              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 focus-ring ${
                 contactOpen
                   ? "bg-background text-foreground shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
@@ -63,7 +63,7 @@ const FloatingNav = () => {
               </p>
               <a
                 href="mailto:goraad.dk@gmail.com"
-                className="flex items-center gap-2 text-sm hover:opacity-70 transition-opacity"
+                className="flex items-center gap-2 text-sm hover:text-foreground transition-colors focus-ring"
               >
                 <Mail size={14} />
                 goraad.dk@gmail.com

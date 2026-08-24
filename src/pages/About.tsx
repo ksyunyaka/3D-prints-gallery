@@ -80,7 +80,7 @@ const About = () => {
               <div className="space-y-2">
                 <a
                   href="mailto:goraad.dk@gmail.com"
-                  className="text-sm hover:opacity-70 transition-opacity flex items-center gap-2"
+                  className="text-sm hover:text-foreground transition-colors flex items-center gap-2 focus-ring"
                 >
                   <Mail size={14} />
                   goraad.dk@gmail.com
