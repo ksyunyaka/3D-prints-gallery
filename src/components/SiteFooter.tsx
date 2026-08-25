@@ -11,8 +11,7 @@ const SiteFooter = () => {
             className="underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
           >
             GodRåd
-          </a>{" "}
-          — Good advice for your business, 2026
+          </a>{" - "}Good advice for your business, 2026
         </p>
         <p className="text-xs text-muted-foreground mt-1">CVR 46666089</p>
       </div>
