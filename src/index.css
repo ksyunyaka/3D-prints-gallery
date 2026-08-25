@@ -89,6 +89,10 @@
     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
   }
 
+  .page-bottom-safe {
+    padding-bottom: calc(var(--footer-height) + 4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
   .nav-safe-area {
     bottom: calc(var(--footer-height) + 0.75rem + env(safe-area-inset-bottom, 0px));
   }
