@@ -10,7 +10,7 @@ const SiteFooter = () => {
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
           >
-            Godt råd
+            GodRåd
           </a>{" "}
           — Good advice for your business, 2026
         </p>
