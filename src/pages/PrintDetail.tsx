@@ -167,7 +167,7 @@ const PrintDetail = () => {
         )}
 
         {/* Navigation */}
-        <section className="py-12 px-6 border-t border-border">
+        <section className="pt-12 page-bottom-safe px-6 border-t border-border">
           <div className="flex items-center justify-between">
             {prevPrint ? (
               <button
