@@ -82,6 +82,16 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background;
   }
 
+  /* Bottom safe area helpers: footer sits flush to the bottom, floating nav
+     stacks above it, both respecting the device's home-indicator inset. */
+  .footer-safe-area {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .nav-safe-area {
+    bottom: calc(var(--footer-height) + 0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
   .project-card {
     @apply block overflow-hidden;
   }
