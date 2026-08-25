@@ -42,7 +42,7 @@ const About = () => {
         </section>
 
         {/* Bottom Info Section */}
-        <section className="px-6 pb-32" id="contact">
+        <section className="px-6 page-bottom-safe" id="contact">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 fade-in-up">
             {/* Printers */}
             <div>

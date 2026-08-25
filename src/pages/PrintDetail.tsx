@@ -43,7 +43,7 @@ const PrintDetail = () => {
       <>
         <main className="min-h-screen bg-background">
           <Navbar />
-          <div className="pt-40 pb-24 px-6 text-center">
+          <div className="pt-40 page-bottom-safe px-6 text-center">
             <h1 className="text-headline mb-4">Print not found</h1>
             {error && <p className="text-sm text-destructive mb-4">{errorMessage(error)}</p>}
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors focus-ring">
@@ -167,7 +167,7 @@ const PrintDetail = () => {
         )}
 
         {/* Navigation */}
-        <section className="py-12 px-6 border-t border-border">
+        <section className="pt-12 page-bottom-safe px-6 border-t border-border">
           <div className="flex items-center justify-between">
             {prevPrint ? (
               <button

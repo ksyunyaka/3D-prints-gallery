@@ -33,6 +33,7 @@
     --input: 20 20% 52%;
     --ring: 20 35% 25%;
     --radius: 0rem;
+    --footer-height: 4.5rem;
     --sidebar-background: 350 55% 97%;
     --sidebar-foreground: 20 30% 25%;
     --sidebar-primary: 20 35% 18%;
@@ -80,6 +81,20 @@
 @layer components {
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background;
+  }
+
+  /* Bottom safe area helpers: footer sits flush to the bottom, floating nav
+     stacks above it, both respecting the device's home-indicator inset. */
+  .footer-safe-area {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .page-bottom-safe {
+    padding-bottom: calc(var(--footer-height) + 4.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .nav-safe-area {
+    bottom: calc(var(--footer-height) + 0.75rem + env(safe-area-inset-bottom, 0px));
   }
 
   .project-card {

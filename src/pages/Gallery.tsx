@@ -47,7 +47,7 @@ const Gallery = () => {
 
         <section
           ref={sectionRef}
-          className="pt-32 md:pt-24 pb-24 px-6 max-w-[1400px] mx-auto w-full"
+          className="pt-32 md:pt-24 page-bottom-safe px-6 max-w-[1400px] mx-auto w-full"
         >
           {isLoading && (
             <div className="flex items-center justify-center py-24">

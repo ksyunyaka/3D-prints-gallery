@@ -1,6 +1,6 @@
 const SiteFooter = () => {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-background/95 backdrop-blur-md py-3">
+    <footer className="footer-safe-area fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-background/95 backdrop-blur-md pt-3">
       <div className="px-6 text-center">
         <p className="text-xs text-muted-foreground">
           Site made by{" "}
