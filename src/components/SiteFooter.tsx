@@ -1,6 +1,6 @@
 const SiteFooter = () => {
   return (
-    <footer className="w-full border-t border-border bg-background pt-8 pb-32">
+    <footer className="fixed bottom-0 left-0 right-0 z-30 border-t border-border bg-background/95 backdrop-blur-md py-3">
       <div className="px-6 text-center">
         <p className="text-xs text-muted-foreground">
           Site made by{" "}
@@ -11,11 +11,11 @@ const SiteFooter = () => {
             className="underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
           >
             GodRåd
-          </a>{" - "}Good advice for your business, 2026
+          </a>
+          {"\u00a0-\u00a0"}Good advice for your business, 2026
         </p>
         <p className="text-xs text-muted-foreground mt-1">CVR 46666089</p>
       </div>
-
     </footer>
   );
 };
