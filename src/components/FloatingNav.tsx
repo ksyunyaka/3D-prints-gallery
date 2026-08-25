@@ -23,7 +23,7 @@ const FloatingNav = () => {
   };
 
   return (
-    <nav className="fixed bottom-[5.5rem] left-1/2 -translate-x-1/2 z-50">
+    <nav className="nav-safe-area fixed left-1/2 -translate-x-1/2 z-50">
       <div className="flex items-center gap-1 bg-muted/80 backdrop-blur-md rounded-full p-1.5">
         {navItems.map((item) => (
           <Link
