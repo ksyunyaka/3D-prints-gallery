@@ -47,11 +47,17 @@ const Gallery = () => {
 
         <section
           ref={sectionRef}
-          className="pt-32 md:pt-24 page-bottom-safe px-6 max-w-[1400px] mx-auto w-full"
+          className="pt-32 md:pt-28 page-bottom-safe px-6 max-w-[1180px] mx-auto w-full"
         >
+          <header className="mb-10">
+            <p className="eyebrow mb-3">Gallery</p>
+            <h1 className="text-headline">Prints, prototypes and objects</h1>
+            <span className="accent-bar mt-4" />
+          </header>
+
           {isLoading && (
             <div className="flex items-center justify-center py-24">
-              <Loader2 className="w-5 h-5 animate-spin text-muted-foreground" />
+              <Loader2 className="w-5 h-5 animate-spin text-caption" />
             </div>
           )}
 
@@ -62,23 +68,23 @@ const Gallery = () => {
           )}
 
           {!isLoading && !error && filteredPrints.length === 0 && (
-            <p className="text-center text-sm text-muted-foreground py-24">
+            <p className="text-center text-sm text-caption py-24">
               No prints here yet.
             </p>
           )}
 
-          {/* Mobile: Pinterest-style 2-column grid with equal sizes */}
+          {/* Mobile: 2-column grid */}
           <div className="grid grid-cols-2 gap-3 md:hidden">
             {filteredPrints.map((print, index) => (
               <Link
                 key={print.id}
                 to={`/print/${print.slug}`}
-                className={`project-card group block transition-all duration-700 ${
+                className={`project-card group block rounded-[3px] border border-border bg-white transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
                 }`}
                 style={{ transitionDelay: `${index * 50}ms` }}
               >
-                <div className="relative overflow-hidden rounded-2xl bg-muted aspect-[4/5]">
+                <div className="relative overflow-hidden bg-cream aspect-[4/5]">
                   <img
                     src={print.images[0]}
                     alt={print.title}
@@ -89,52 +95,53 @@ const Gallery = () => {
                   />
                 </div>
 
-                <div className="pt-2 pb-3">
-                  <h3 className="text-xs font-medium group-hover:opacity-70 transition-opacity duration-300 line-clamp-1">
+                <div className="p-3">
+                  <h2 className="font-heading font-semibold text-[13px] tracking-heading text-ink line-clamp-1">
                     {print.title}
-                  </h3>
-                  <p className="text-[10px] text-muted-foreground mt-0.5 line-clamp-1">
-                    {print.tags.slice(0, 2).map((tag) => `#${tag}`).join(" ")}
+                  </h2>
+                  <p className="text-[12px] text-caption mt-1 line-clamp-1 tabular">
+                    {print.tags.slice(0, 2).join(" · ")}
                   </p>
                 </div>
               </Link>
             ))}
           </div>
 
-          {/* Desktop: Masonry layout */}
-          <div className="hidden md:block columns-2 lg:columns-3 3xl:columns-4 gap-4">
+          {/* Desktop: masonry */}
+          <div className="hidden md:block columns-2 lg:columns-3 gap-4">
             {filteredPrints.map((print, index) => (
               <Link
                 key={print.id}
                 to={`/print/${print.slug}`}
-                className={`project-card group block mb-4 break-inside-avoid transition-all duration-700 ${
+                className={`project-card group block mb-4 break-inside-avoid rounded-[3px] border border-border bg-white transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
                 }`}
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
-                <div className="relative overflow-hidden rounded-3xl bg-muted">
+                <div className="relative overflow-hidden bg-cream">
                   <img
                     src={print.images[0]}
                     alt={print.title}
                     className="w-full h-auto max-h-[70vh] object-cover"
                     loading="lazy"
                     decoding="async"
-                    sizes="(min-width: 1536px) 25vw, (min-width: 1024px) 33vw, 50vw"
+                    sizes="(min-width: 1024px) 33vw, 50vw"
                   />
                 </div>
 
-                <div className="pt-3 pb-4">
-                  <h3 className="text-sm font-medium group-hover:opacity-70 transition-opacity duration-300">
+                <div className="p-4">
+                  <h2 className="font-heading font-semibold text-[15px] tracking-heading text-ink">
                     {print.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">
-                    {print.tags.map((tag) => `#${tag}`).join(" ")}
+                  </h2>
+                  <p className="text-[12px] text-caption mt-1 tabular">
+                    {print.tags.join(" · ")}
                   </p>
                 </div>
               </Link>
             ))}
           </div>
         </section>
+
       </main>
       <SiteFooter />
       <FloatingNav />
