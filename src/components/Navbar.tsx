@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Moon, Sun } from "lucide-react";
+import Wordmark from "@/components/brand/Wordmark";
 
 interface NavbarProps {
   categories?: string[];
@@ -10,7 +10,6 @@ interface NavbarProps {
 
 const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const location = useLocation();
 
   const isHomePage = location.pathname === "/";
@@ -25,79 +24,53 @@ const Navbar = ({ categories = [], selectedCategory, onCategoryChange }: NavbarP
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setIsDark(isDarkMode);
-  }, []);
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    document.documentElement.classList.toggle("dark", newIsDark);
-  };
+  const categoryClass = (active: boolean) =>
+    `px-4 min-h-11 flex items-center font-heading font-semibold text-[12px] uppercase tracking-[0.08em] rounded-[3px] border transition-colors focus-ring ${
+      active
+        ? "bg-ink text-cream-card border-ink"
+        : "bg-transparent text-ink border-border hover:border-lavender"
+    }`;
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? "bg-background/95 backdrop-blur-sm" : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isScrolled ? "bg-background border-b border-border" : "bg-transparent"
         }`}
       >
-        <div className="px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link
-              to="/"
-              className="text-lg font-medium tracking-tight hover:opacity-80 transition-opacity duration-300 focus-ring"
-            >
-              Oksana&nbsp;Prints
+        <div className="mx-auto max-w-[1180px] px-6">
+          <div className="flex items-center justify-between h-20">
+            <Link to="/" className="focus-ring" aria-label="Oksana — 3D Creator, home">
+              <Wordmark size={36} heartSize={15} />
             </Link>
 
-            {/* Center: Category Filters (Desktop only, only on Home page) */}
             {isHomePage && onCategoryChange && visibleCategories.length > 0 && (
-              <div className="hidden md:flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-3">
                 {visibleCategories.map((category) => (
                   <button
                     key={category}
                     onClick={() => onCategoryChange(category)}
-                    className={`px-4 py-1.5 text-sm rounded-full transition-all duration-300 focus-ring ${
-                      selectedCategory === category
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
+                    className={categoryClass(selectedCategory === category)}
                   >
                     {category}
                   </button>
                 ))}
               </div>
             )}
-
-            {/* Right side: Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 min-h-11 min-w-11 flex items-center justify-center hover:opacity-80 transition-opacity duration-300 focus-ring"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile: Scrollable Categories below header (only on Home page) */}
+      {/* Mobile: scrollable categories below header */}
       {isHomePage && onCategoryChange && visibleCategories.length > 0 && (
-        <div className="fixed top-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm md:hidden">
+        <div className="fixed top-20 left-0 right-0 z-40 bg-background border-b border-border md:hidden">
           <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-2 px-6 py-3 w-max">
+            <div className="flex gap-3 px-6 py-3 w-max">
               {visibleCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => onCategoryChange(category)}
-                  className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300 focus-ring ${
-                    selectedCategory === category
-                      ? "bg-foreground text-background"
-                      : "bg-muted text-muted-foreground"
-                  }`}
+                  className={`${categoryClass(selectedCategory === category)} whitespace-nowrap`}
                 >
                   {category}
                 </button>

@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Hide scrollbar for category carousel */
 .scrollbar-hide {
@@ -8,62 +10,49 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {
-    --background: 350 60% 98%;
-    --foreground: 20 35% 15%;
-    --card: 350 55% 99%;
-    --card-foreground: 20 35% 15%;
-    --popover: 350 55% 99%;
-    --popover-foreground: 20 35% 15%;
-    --primary: 20 35% 18%;
-    --primary-foreground: 350 60% 97%;
-    --secondary: 348 55% 93%;
-    --secondary-foreground: 20 35% 18%;
-    --muted: 348 45% 94%;
-    --muted-foreground: 20 18% 42%;
-    --accent: 345 70% 88%;
-    --accent-foreground: 20 35% 18%;
-    --destructive: 0 72% 48%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 345 32% 84%;
-    --input: 20 20% 52%;
-    --ring: 20 35% 25%;
-    --radius: 0rem;
-    --footer-height: 4.5rem;
-    --sidebar-background: 350 55% 97%;
-    --sidebar-foreground: 20 30% 25%;
-    --sidebar-primary: 20 35% 18%;
-    --sidebar-primary-foreground: 350 60% 97%;
-    --sidebar-accent: 348 55% 93%;
-    --sidebar-accent-foreground: 20 35% 18%;
-    --sidebar-border: 345 35% 88%;
-    --sidebar-ring: 345 60% 70%;
-  }
+    /* Brand palette — Oksana, 3D Creator */
+    --ink: 214 51% 12%;            /* Deep Ocean #0F1B2D */
+    --cream: 41 39% 94%;           /* Cream #F5F1E8 */
+    --card-cream: 25 100% 98%;     /* Card Cream #FFF9F4 */
+    --lavender: 271 91% 65%;       /* #A855F7 */
+    --lavender-deep: 272 72% 47%;  /* #7E22CE */
+    --lavender-light: 276 100% 74%;/* #C77DFF */
+    --teal: 176 56% 55%;           /* GoRåd heart #4ECDC4 */
+    --caption: 210 13% 41%;        /* #5A6875 */
+    --caption-dark: 209 14% 60%;   /* #8C9BA8 */
 
-  .dark {
-    --background: 20 30% 10%;
-    --foreground: 350 40% 95%;
-    --card: 20 28% 13%;
-    --card-foreground: 350 40% 95%;
-    --popover: 20 28% 13%;
-    --popover-foreground: 350 40% 95%;
-    --primary: 345 65% 85%;
-    --primary-foreground: 20 35% 14%;
-    --secondary: 20 22% 19%;
-    --secondary-foreground: 350 40% 95%;
-    --muted: 20 22% 19%;
-    --muted-foreground: 345 20% 70%;
-    --accent: 345 45% 30%;
-    --accent-foreground: 350 40% 95%;
-    --destructive: 0 62% 38%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 20 20% 28%;
-    --input: 20 14% 45%;
-    --ring: 345 55% 70%;
+    --background: var(--cream);
+    --foreground: 211 20% 29%;     /* body copy #3C4A58 */
+    --card: 0 0% 100%;
+    --card-foreground: var(--ink);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--ink);
+    --primary: var(--ink);
+    --primary-foreground: var(--card-cream);
+    --secondary: var(--card-cream);
+    --secondary-foreground: var(--ink);
+    --muted: var(--card-cream);
+    --muted-foreground: var(--caption);
+    --accent: var(--lavender);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 34 26% 90%;          /* #EDE7E0 */
+    --input: 34 26% 90%;
+    --ring: var(--lavender);
+    --radius: 3px;
+    --footer-height: 8.5rem;
+    --sidebar-background: var(--card-cream);
+    --sidebar-foreground: var(--ink);
+    --sidebar-primary: var(--ink);
+    --sidebar-primary-foreground: var(--card-cream);
+    --sidebar-accent: var(--cream);
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: 34 26% 90%;
+    --sidebar-ring: var(--lavender);
   }
 }
 
@@ -76,17 +65,65 @@
     @apply bg-background text-foreground antialiased font-sans;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-ink;
+    letter-spacing: -0.025em;
+  }
 }
 
 @layer components {
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-lavender;
   }
 
-  /* Bottom safe area helpers: footer sits flush to the bottom, floating nav
-     stacks above it, both respecting the device's home-indicator inset. */
+  .eyebrow {
+    font-family: Montserrat, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: hsl(var(--caption));
+  }
+
+  .accent-bar {
+    display: block;
+    width: 48px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: hsl(var(--lavender));
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-ink text-cream-card font-heading font-semibold uppercase transition-colors;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 14px 24px;
+    border-radius: 3px;
+    min-height: 44px;
+  }
+  .btn-primary:hover {
+    background-color: hsl(var(--lavender));
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center border border-border bg-transparent text-ink font-heading font-semibold uppercase transition-colors;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 14px 24px;
+    border-radius: 3px;
+    min-height: 44px;
+  }
+  .btn-secondary:hover {
+    border-color: hsl(var(--lavender));
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Bottom safe area helpers */
   .footer-safe-area {
-    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
   }
 
   .page-bottom-safe {
@@ -145,12 +182,10 @@
   }
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -160,10 +195,9 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.3);
-  border-radius: 4px;
+  background: hsl(var(--caption) / 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.5);
+  background: hsl(var(--caption) / 0.5);
 }
