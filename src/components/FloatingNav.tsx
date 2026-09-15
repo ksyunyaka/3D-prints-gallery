@@ -22,53 +22,38 @@ const FloatingNav = () => {
     return currentPath.startsWith(path);
   };
 
+  const itemClass = (active: boolean) =>
+    `px-5 min-h-11 flex items-center font-heading font-semibold text-[12px] uppercase tracking-[0.08em] rounded-[3px] transition-colors focus-ring ${
+      active ? "bg-ink text-cream-card" : "text-ink hover:bg-cream"
+    }`;
+
   return (
     <nav className="nav-safe-area fixed left-1/2 -translate-x-1/2 z-50">
-      <div className="flex items-center gap-1 bg-muted/80 backdrop-blur-md rounded-full p-1.5">
+      <div className="flex items-center gap-1 rounded-[3px] border border-border bg-cream-card p-1.5">
         {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 focus-ring ${
-              isActive(item.path)
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
+          <Link key={item.name} to={item.path} className={itemClass(isActive(item.path))}>
             {item.name}
           </Link>
         ))}
 
-        {/* Contact with Popover */}
         <Popover open={contactOpen} onOpenChange={setContactOpen}>
           <PopoverTrigger asChild>
-            <button
-              className={`px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 focus-ring ${
-                contactOpen
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Contact
-            </button>
+            <button className={itemClass(contactOpen)}>Contact</button>
           </PopoverTrigger>
           <PopoverContent
-            className="w-64 p-4 rounded-2xl border border-border bg-background/95 backdrop-blur-md shadow-xl"
+            className="w-64 p-4 rounded-[3px] border border-border bg-white"
             side="top"
             sideOffset={12}
           >
-            <div className="space-y-2">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
-                Say Hi!
-              </p>
-              <a
-                href="mailto:goraad.dk@gmail.com"
-                className="flex items-center gap-2 text-sm hover:text-foreground transition-colors focus-ring"
-              >
-                <Mail size={14} />
-                goraad.dk@gmail.com
-              </a>
-            </div>
+            <p className="eyebrow mb-1">Say hi</p>
+            <span className="accent-bar mb-3" />
+            <a
+              href="mailto:goraad.dk@gmail.com"
+              className="flex items-center gap-2 text-sm text-lavender-deep transition-colors hover:text-ink focus-ring"
+            >
+              <Mail size={14} />
+              goraad.dk@gmail.com
+            </a>
           </PopoverContent>
         </Popover>
       </div>

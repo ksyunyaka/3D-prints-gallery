@@ -68,8 +68,8 @@ const PrintDetail = () => {
         <Navbar />
 
         {/* Hero Image */}
-        <section className="pt-20 px-4 md:px-6 max-w-[1200px] mx-auto w-full">
-          <div className="w-full overflow-hidden rounded-2xl md:rounded-3xl bg-muted fade-in-up flex items-center justify-center">
+        <section className="pt-28 px-6 max-w-[1180px] mx-auto w-full">
+          <div className="w-full overflow-hidden rounded-[3px] border border-border bg-white fade-in-up flex items-center justify-center">
             <img
               src={print.images[0]}
               alt={print.title}
@@ -80,37 +80,39 @@ const PrintDetail = () => {
         </section>
 
         {/* Print Info */}
-        <section className="py-8 px-6 max-w-[1200px] mx-auto w-full">
-          <div className="max-w-4xl">
-            <div className="mb-6 fade-in-up fade-in-up-delay-1">
-              <h1 className="text-display mb-3">{print.title}</h1>
-              <p className="text-sm text-muted-foreground">
-                {print.tags.map((tag) => `#${tag}`).join(" ")}
+        <section className="py-10 px-6 max-w-[1180px] mx-auto w-full">
+          <div className="max-w-3xl">
+            <div className="mb-8 fade-in-up fade-in-up-delay-1">
+              <p className="eyebrow mb-3">Print</p>
+              <h1 className="text-headline">{print.title}</h1>
+              <span className="accent-bar mt-4" />
+              <p className="text-[12px] text-caption mt-4 tabular">
+                {print.tags.join(" · ")}
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8 fade-in-up fade-in-up-delay-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 fade-in-up fade-in-up-delay-2">
               {print.year && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Year</p>
-                  <p className="text-sm">{print.year}</p>
+                <div className="rounded-[3px] border border-border bg-white p-4">
+                  <p className="eyebrow mb-2">Year</p>
+                  <p className="text-sm tabular">{print.year}</p>
                 </div>
               )}
               {print.material && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Material</p>
+                <div className="rounded-[3px] border border-border bg-white p-4">
+                  <p className="eyebrow mb-2">Material</p>
                   <p className="text-sm">{print.material}</p>
                 </div>
               )}
               {print.sourceName && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Source</p>
+                <div className="rounded-[3px] border border-border bg-white p-4">
+                  <p className="eyebrow mb-2">Source</p>
                   {print.sourceUrl ? (
                     <a
                       href={print.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
+                      className="text-sm text-lavender-deep underline underline-offset-2 hover:text-ink transition-colors focus-ring"
                     >
                       {print.sourceName}
                     </a>
@@ -120,13 +122,13 @@ const PrintDetail = () => {
                 </div>
               )}
               {print.stlUrl && (
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Model file</p>
+                <div className="rounded-[3px] border border-border bg-white p-4">
+                  <p className="eyebrow mb-2">Model file</p>
                   <a
                     href={print.stlUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm underline underline-offset-2 hover:text-foreground transition-colors focus-ring"
+                    className="text-sm text-lavender-deep underline underline-offset-2 hover:text-ink transition-colors focus-ring"
                   >
                     Download
                   </a>
@@ -136,7 +138,7 @@ const PrintDetail = () => {
 
             {print.description && (
               <div className="max-w-2xl fade-in-up fade-in-up-delay-3">
-                <p className="text-lg leading-relaxed text-foreground/90">{print.description}</p>
+                <p className="text-[17px] leading-relaxed text-foreground">{print.description}</p>
               </div>
             )}
           </div>
@@ -144,12 +146,12 @@ const PrintDetail = () => {
 
         {/* Gallery */}
         {print.images.length > 1 && (
-          <section className="py-6 px-6 max-w-[1200px] mx-auto w-full">
+          <section className="pb-6 px-6 max-w-[1180px] mx-auto w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {print.images.slice(1).map((image, index) => (
                 <div
                   key={image}
-                  className="w-full overflow-hidden rounded-3xl bg-muted fade-in-up flex items-center justify-center"
+                  className="w-full overflow-hidden rounded-[3px] border border-border bg-white fade-in-up flex items-center justify-center"
                   style={{ animationDelay: `${(index + 4) * 100}ms` }}
                 >
                   <img
@@ -166,17 +168,18 @@ const PrintDetail = () => {
           </section>
         )}
 
+
         {/* Navigation */}
-        <section className="pt-12 page-bottom-safe px-6 border-t border-border">
-          <div className="flex items-center justify-between">
+        <section className="pt-10 page-bottom-safe px-6 max-w-[1180px] mx-auto w-full border-t border-border">
+          <div className="flex items-center justify-between gap-4">
             {prevPrint ? (
               <button
                 onClick={() => navigate(`/print/${prevPrint.slug}`)}
-                className="group flex items-center gap-3 text-left hover:text-foreground transition-colors duration-300 focus-ring"
+                className="group flex items-center gap-3 text-left min-h-11 text-ink hover:text-lavender-deep transition-colors focus-ring"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform duration-300" />
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Previous</p>
+                  <p className="eyebrow">Previous</p>
                   <p className="text-sm">{prevPrint.title}</p>
                 </div>
               </button>
@@ -187,10 +190,10 @@ const PrintDetail = () => {
             {nextPrint ? (
               <button
                 onClick={() => navigate(`/print/${nextPrint.slug}`)}
-                className="group flex items-center gap-3 text-right hover:text-foreground transition-colors duration-300 focus-ring"
+                className="group flex items-center gap-3 text-right min-h-11 text-ink hover:text-lavender-deep transition-colors focus-ring"
               >
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Next</p>
+                  <p className="eyebrow">Next</p>
                   <p className="text-sm">{nextPrint.title}</p>
                 </div>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
@@ -200,6 +203,7 @@ const PrintDetail = () => {
             )}
           </div>
         </section>
+
       </main>
       <SiteFooter />
       <FloatingNav />

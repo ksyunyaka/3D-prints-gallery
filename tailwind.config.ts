@@ -22,13 +22,17 @@ export default {
         "3xl": "1920px",
       },
       fontFamily: {
-        serif: ["Cormorant Garamond", "Georgia", "serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Montserrat", "system-ui", "sans-serif"],
+        script: ["Great Vibes", "cursive"],
+      },
+      letterSpacing: {
+        heading: "-0.025em",
       },
       fontSize: {
-        "display": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
-        "headline": ["clamp(2rem, 5vw, 4rem)", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
-        "subheadline": ["clamp(1.25rem, 2vw, 1.75rem)", { lineHeight: "1.4" }],
+        "display": ["clamp(2rem, 5vw, 3.25rem)", { lineHeight: "1.1", letterSpacing: "-0.025em" }],
+        "headline": ["clamp(1.6rem, 4vw, 2.5rem)", { lineHeight: "1.2", letterSpacing: "-0.025em" }],
+        "subheadline": ["clamp(1.15rem, 2vw, 1.5rem)", { lineHeight: "1.35" }],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -36,6 +40,21 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        ink: "hsl(var(--ink))",
+        cream: {
+          DEFAULT: "hsl(var(--cream))",
+          card: "hsl(var(--card-cream))",
+        },
+        lavender: {
+          DEFAULT: "hsl(var(--lavender))",
+          deep: "hsl(var(--lavender-deep))",
+          light: "hsl(var(--lavender-light))",
+        },
+        teal: "hsl(var(--teal))",
+        caption: {
+          DEFAULT: "hsl(var(--caption))",
+          dark: "hsl(var(--caption-dark))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
