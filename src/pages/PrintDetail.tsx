@@ -170,16 +170,16 @@ const PrintDetail = () => {
 
 
         {/* Navigation */}
-        <section className="pt-12 page-bottom-safe px-6 border-t border-border">
-          <div className="flex items-center justify-between">
+        <section className="pt-10 page-bottom-safe px-6 max-w-[1180px] mx-auto w-full border-t border-border">
+          <div className="flex items-center justify-between gap-4">
             {prevPrint ? (
               <button
                 onClick={() => navigate(`/print/${prevPrint.slug}`)}
-                className="group flex items-center gap-3 text-left hover:text-foreground transition-colors duration-300 focus-ring"
+                className="group flex items-center gap-3 text-left min-h-11 text-ink hover:text-lavender-deep transition-colors focus-ring"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-2 transition-transform duration-300" />
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Previous</p>
+                  <p className="eyebrow">Previous</p>
                   <p className="text-sm">{prevPrint.title}</p>
                 </div>
               </button>
@@ -190,10 +190,10 @@ const PrintDetail = () => {
             {nextPrint ? (
               <button
                 onClick={() => navigate(`/print/${nextPrint.slug}`)}
-                className="group flex items-center gap-3 text-right hover:text-foreground transition-colors duration-300 focus-ring"
+                className="group flex items-center gap-3 text-right min-h-11 text-ink hover:text-lavender-deep transition-colors focus-ring"
               >
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Next</p>
+                  <p className="eyebrow">Next</p>
                   <p className="text-sm">{nextPrint.title}</p>
                 </div>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
@@ -203,6 +203,7 @@ const PrintDetail = () => {
             )}
           </div>
         </section>
+
       </main>
       <SiteFooter />
       <FloatingNav />
